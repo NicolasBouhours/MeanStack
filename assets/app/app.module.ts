@@ -1,3 +1,4 @@
+import { MessageService } from './messages/message.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { MessageInputComponent } from './messages/message-input.component';
         MessageInputComponent
     ],
     imports: [BrowserModule, FormsModule],
+    providers: [MessageService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
