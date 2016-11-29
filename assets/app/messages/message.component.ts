@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Message } from './message.models';
 
 @Component({
     selector: 'app-message',
     templateUrl: './message.component.html'
 })
 export class MessageComponent {
-    message = {
-        content: 'A message',
-        author: 'Max',
-    };
+    @Input() message: Message;
 }
