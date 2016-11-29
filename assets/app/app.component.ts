@@ -20,9 +20,13 @@ import { Message } from './messages/message.models';
     `]
 })
 export class AppComponent {
-    message: Message = new Message('A message', 'Max');
+    messages: Message[] = [
+        new Message('A message', 'Max'),
+        new Message('A second message', 'Nicolas'),
+        new Message('Third message', 'Thomas')
+    ];
 
     onEditClicked() {
-        
+
     }
 }
