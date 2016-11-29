@@ -9,6 +9,8 @@ export class MessageComponent {
     @Input() message: Message;
     @Output() editClicked = new EventEmitter<string>();
 
+    color: 'red';
+
     onClick() {
         alert('it worked');
         this.editClicked.emit('A new value')
