@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Message } from './message.models';
 
 @Component({
@@ -7,4 +7,10 @@ import { Message } from './message.models';
 })
 export class MessageComponent {
     @Input() message: Message;
+    @Output() editClicked = new EventEmitter<string>();
+
+    onClick() {
+        alert('it worked');
+        this.editClicked.emit('A new value')
+    }
 }

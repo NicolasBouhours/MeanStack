@@ -21,4 +21,8 @@ import { Message } from './messages/message.models';
 })
 export class AppComponent {
     message: Message = new Message('A message', 'Max');
+
+    onEditClicked() {
+        
+    }
 }
