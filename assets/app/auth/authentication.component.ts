@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'app-authentication',
     template: `
         <div class="container">
-            authentication
+            <h2>authentication</h2>
         </div>   
     `
 })
