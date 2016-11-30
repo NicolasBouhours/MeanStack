@@ -3,9 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-authentication',
     template: `
-        <div class="container">
-            <h2>authentication</h2>
-        </div>   
+        <h1>Authentication</h1>
     `
 })
 export class AuthenticationComponent {
