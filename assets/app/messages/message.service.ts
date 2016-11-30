@@ -12,7 +12,7 @@ export class MessageService {
     constructor(private http: Http) {}
 
     getMessages() {
-        return this.messages
+        return this.messages;
     }
 
     addMessage(message: Message) {
