@@ -1,10 +1,12 @@
-import { MessageService } from './messages/message.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
+
+import { AuthService } from './auth/auth.service';
+import { MessageService } from './messages/message.service';
 
 import { AppComponent } from "./app.component";
 import { MessagesComponent } from './messages/messages.component';
@@ -37,7 +39,7 @@ import { SigninComponent } from './auth/signin.component';
         ReactiveFormsModule,
         HttpModule
     ],
-    providers: [MessageService],
+    providers: [MessageService, AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
