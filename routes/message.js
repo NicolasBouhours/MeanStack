@@ -38,7 +38,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.patch('/:id', (req, res, next) => {
-    Message.findByid(req.params.id, (err, message) => {
+    Message.findById(req.params.id, (err, message) => {
         if (err) {
             return res.status(500).json({
                 title: 'An error occured',
