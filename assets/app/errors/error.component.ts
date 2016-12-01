@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ErrorService } from './error.service';
 import { Error } from './error.model';
 
 @Component({
@@ -15,9 +16,21 @@ import { Error } from './error.model';
         }
     `]
 })
-export class ErrorComponent {
+export class ErrorComponent implements OnInit {
     error: Error;
     display = 'none';
+
+    constructor(private errorService: ErrorService) { }
+
+    ngOnInit() {
+        this.errorService.errorOccurend
+            .subscribe(
+            (error: Error) => {
+                this.error = error;
+                this.display = 'block';
+            }
+        );
+    }
 
     onErrorHandled() {
         this.display = 'none';
