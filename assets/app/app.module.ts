@@ -7,6 +7,7 @@ import { routing } from './app.routing';
 
 import { AuthService } from './auth/auth.service';
 import { MessageService } from './messages/message.service';
+import { ErrorService } from './errors/error.service';
 
 import { AppComponent } from "./app.component";
 import { MessagesComponent } from './messages/messages.component';
@@ -41,7 +42,7 @@ import { ErrorComponent } from './errors/error.component';
         ReactiveFormsModule,
         HttpModule
     ],
-    providers: [MessageService, AuthService],
+    providers: [MessageService, AuthService, ErrorService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
