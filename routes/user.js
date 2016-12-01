@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let bcrypt = require('bcryptjs');
+let jwt = require('jsonwebtoken');
 
 let User = require('../models/user');
 
@@ -25,5 +26,37 @@ router.post('/', (req, res, next) => {
         });
     });
 });
+
+router.post('/signin', (req, res, next) => {
+    User.findOne({email: req.body.email}, (err, user) => {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occured',
+                error: err
+            });
+        }
+
+        if(!user) {
+            return res.status(500).json({
+                title: 'Login failed',
+                error: {message: 'Invalid login credentials'}
+            });
+        }
+        if (!bcrypt.compare(req.body.password, user.password)) {
+            return res.status(500).json({
+                title: 'Login failed',
+                error: {message: 'Invalid login credentials'}
+            });
+        }
+        let token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
+        res.status(200).json({
+            message: 'Successfully logged in',
+            token: token,
+            userId: user._id
+        });
+    });
+});
+
+
 
 module.exports = router;
