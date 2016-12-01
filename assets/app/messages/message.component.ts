@@ -30,4 +30,8 @@ export class MessageComponent {
                 result => console.log(result)
         );
     }
+
+    belongToUser() {
+        return this.message.userId === localStorage.getItem('userId');
+    }
 }
