@@ -49,7 +49,6 @@ export class MessageService {
     }
 
     updateMessage(message: Message) {
-        this.messages.push(message);
         const body = JSON.stringify(message);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
